@@ -1,0 +1,60 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Font Face styling */
+
+@font-face {
+    font-family: 'bebas';
+    src: url('fonts/bebasneue-regular-webfont.woff2') format('woff2'),
+        url('fonts/bebasneue-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'altone';
+    src: url('fonts/altone_trial-regular-webfont.woff2') format('woff2'),
+         url('fonts/altone_trial-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+   --bg-neutral-50 : rgb(250 250 250);
+    --bg-neutral-100 : rgb(245 245 245);
+    --bg-neutral-200 : rgb(229 229 229);
+    --bg-neutral-300 : rgb(212 212 212);
+    --bg-neutral-400 : rgb(163 163 163);
+    --bg-neutral-500 : rgb(115 115 115);
+    --bg-neutral-600 : rgb(82 82 82);
+    --bg-neutral-700 : rgb(64 64 64);
+    --bg-neutral-800 : rgb(38 38 38);
+    --bg-neutral-900 : rgb(23 23 23);
+    --bg-neutral-950 : rgb(10 10 10);
+
+    --main-blue-light: rgb(38, 132, 252);
+    --main-blue-dark: rgb(0, 102, 218);
+}
+
+body {
+    font-family: 'calibri';
+    background-color: var(--bg-neutral-100);
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
