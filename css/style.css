@@ -1,5 +1,145 @@
-h1, p {
-    font-size: 3em;
-    font-family: bebas;
-    font-style: italic;
+/* main-container */
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* main-content-area */
+.main-content-area {
+    grid-column: 1 / 3;
+    overflow-y: auto;
+}
+
+
+.main-content-area .navbar .searchbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; 
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.main-content-area .navbar .searchbar div {
+    background-color: var(--bg-neutral-200);
+    height: 70%;
+    width: 60%;
+    border-radius: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content-area .navbar .searchbar div:focus-within {
+    box-shadow: 1px 1px 1px 1px var(--main-blue-light);
+}
+
+.main-content-area .navbar .searchbar 
+div .fa-magnifying-glass {
+    font-size: 1.5em;
+    color: var(--bg-neutral-500);
+}
+
+.main-content-area .navbar .searchbar 
+div #search {
+    height: 100%;
+    width: 85%;
+    padding: 0.1em 0.5em;
+    background-color: transparent;
+    font-size: 1.5em;
+    color: var(--bg-neutral-600);
+    appearance: none;
+    border: none;
+    outline: none;
+}
+
+.image-content-area 
+.image-track-container .track .image-wrapper {
+    width: 100px;
+}
+
+/* User interaction panel */
+.user-interaction-panel div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    height: 40px;
+    background-color: var(--main-blue-dark);
+}
+
+.user-interaction-panel div .logo {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 1.5em;
+}
+
+.user-interaction-panel div .logo .fa-image {
+    font-size: 1.5em;
+    color: white;
+}
+
+.user-interaction-panel div .logo p {
+    font-size: 1.2em;
+    color: white;
+    font-family: bebas, sans-serif;
+}
+
+.user-interaction-panel div .upload-btn {
+    width: 100%;
+    display: flex;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.user-interaction-panel div .upload-btn input {
+    height: 0;
+    width: 0;
+}
+
+.user-interaction-panel div .upload-btn label[for="fileupload"] {
+    width: 100%;
+    line-height: 30px;
+    background-color: white;
+    font-size: 1.3em;
+    border-radius: 100px;
+    transition: background 0.5s ease;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.user-interaction-panel div .upload-btn label[for="fileupload"]:hover {
+    background-color: var(--bg-neutral-200);
+}
+
+.user-interaction-panel div .sort-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2em;
+}
+
+.user-interaction-panel div .sort-button button {
+    border: none;
+    background-color: transparent;
+}
+
+.user-interaction-panel div .sort-button button {
+    font-size: 1.3em;
+    color: white;
+    transition: background 0.5s ease;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.user-interaction-panel div .sort-button button:hover {
+    color: var(--bg-neutral-200);
 }

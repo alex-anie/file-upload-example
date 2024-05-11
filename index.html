@@ -14,28 +14,82 @@
 
 </head>
 <body>
-    <main>
-        <header>
-            <!-- Search Bar -->
-            <section class="searchbar" data-search="search">
-                <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="search" name="search" id="search">
-                </div>
-            </section>
-
-            <!-- user interaction panel -->
-            <section>
-                <div>
+    <main class="main-container">
+        <!-- Content Area -->
+        <section class="main-content-area">
+            <!-- Navbar -->
+            <header class="navbar">
+                <!-- Search Bar -->
+                <section class="searchbar" data-search="search">
                     <div>
-                        <span>
-                            <i class="fa-solid fa-image"></i>
-                            <p>Image Collection</p>
-                        </span>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" name="search" id="search" placeholder="Search images...">
                     </div>
-                </div>
-            </section>
-        </header>
+                </section>
+    
+                <!-- user interaction panel -->
+                <section class="user-interaction-panel">
+                    <div>
+                        <div class="logo">
+                                <i class="fa-solid fa-image"></i>
+                                <p>Image Collection</p>
+                        </div>
+    
+                        <button class="upload-btn" type="button">
+                            <input type="file" name="file-upload" id="fileupload" value="upload an image" accept="image/png, image/jpg">
+                            
+                            <label for="fileupload">Upload an Image <i class="fa-solid fa-file-arrow-up"></i> </label>
+                        </button>
+    
+                        <div class="sort-button">
+                            <button class="button">
+                                <i class="fa-solid fa-filter"></i>
+                            </button>
+                            <button class="button">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </header>
+    
+            <!-- Image Content Area -->
+            <main class="image-content-area">
+                <article class="image-track-container">
+                    <section class="track track-1">
+                        <div class="image-wrapper">
+                            <img src="/images/nike/Air Jordan 1 Low-four[black].png" alt="">
+                        </div>
+    
+                        <div>
+                            <h2>Image Title</h2>
+                            <div>
+                                <i class="fa-solid fa-file-image"></i>
+                                <em class="file-size">3mb</em>
+                                <em class="demension">Samson</em>
+                                <em class="date">May 7th</em>
+                            </div>
+                        </div>
+    
+                        <!-- File controls -->
+                        <div class="file-controls">
+                            <i class="fa-solid fa-file-import"></i>
+                            <i class="fa-solid fa-share-from-square"></i>
+                            <i class="fa-solid fa-trash-can"></i>
+                            <span>
+                                <input type="checkbox" name="checkbox" id="checkbox">
+                            </span>
+                        </div>
+    
+                    </section>
+                </article>
+            </main>
+        </section>
+
+        <!-- Folder Area -->
+        <section class="siderbar-content">
+
+        </section>
     </main>
 </body>
 </html>
