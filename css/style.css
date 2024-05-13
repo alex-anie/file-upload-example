@@ -4,15 +4,22 @@
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 /* main-content-area */
 .main-content-area {
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
     overflow-y: auto;
 }
 
+.main-content-area .navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}
 
 .main-content-area .navbar .searchbar {
     width: 100%;
@@ -57,10 +64,6 @@ div #search {
     outline: none;
 }
 
-.image-content-area 
-.image-track-container .track .image-wrapper {
-    width: 100px;
-}
 
 /* User interaction panel */
 .user-interaction-panel div {
@@ -142,4 +145,188 @@ div #search {
 
 .user-interaction-panel div .sort-button button:hover {
     color: var(--bg-neutral-200);
+}
+
+/* ::: CONTENT AREA ::: */
+.image-content-area {
+    width: 100%;
+}
+
+.image-content-area .image-track-container  {
+    height: 100px;
+    background-color: white;
+    border-bottom: 1px solid var(--bg-neutral-300);
+}
+
+.image-content-area .image-track-container .track {
+    width: 90%;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Image sizing */
+.image-content-area 
+.image-track-container .track .image-wrapper {
+    width: 80px;
+    height: 80px;
+}
+
+.image-content-area 
+.image-track-container .track .image-wrapper img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.image-track-container .track 
+.image-details-container 
+h2.file-name {
+    font-size: 2em;
+    color: var(--bg-neutral-600);
+    font-weight: 400;
+}
+
+.image-track-container .track 
+.image-details-container 
+i, em {
+    color: var(--bg-neutral-500);
+}
+
+.image-track-container .track 
+.image-details-container 
+i {
+   font-size: 16px;
+   display: inline-block;
+   margin-right: 10px;
+}
+
+
+.image-track-container .track 
+.image-details-container 
+em {
+    font-size: 1.1em;
+    font-style: normal;
+    font-weight: 200;
+}
+
+/* file controls */
+.image-track-container .track .file-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.image-track-container .track .file-controls i {
+    color: var(--bg-neutral-500);
+    transition: color 0.5s ease;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.image-track-container .track .file-controls i:hover {
+    color: var(--bg-neutral-900);
+}
+
+.image-track-container .track .file-controls input {
+    display: inline-block;
+    accent-color:  var(--bg-neutral-500);
+    width: 18px;
+    height: 18px;
+    transition: accent-color 0.5s ease;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.image-track-container .track .file-controls input:hover {
+    accent-color:  var(--bg-neutral-900);
+}
+
+
+/* ::: FOLDER SECTION */
+.siderbar-content {
+    grid-column: 4 / 6;
+    width: 100%;
+}
+.siderbar-content .folder-card {
+    position: relative;
+    width: 80%;
+    height: 240px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,0.40940126050420167) 100%);
+}
+
+.siderbar-content .folder-overflow {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+
+/* Folder Icons */
+.siderbar-content  .folder-icon .fa-chevron-down{
+    color: white;
+    font-size: 1.4em;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.siderbar-content  .folder-icon .fa-folder {
+    color: white;
+    font-size: 2em;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+/* folder image and paragraph section */
+.siderbar-content .folder-image-para-wrapper {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-right: 4em;
+    height: 80px;
+    width: 90%;
+    border-bottom: 1px solid white;
+    position: relative;
+}
+
+/* image */
+.siderbar-content .folder-image-wrapper {
+    width: 50px;
+    height: 50px;
+}
+
+
+.siderbar-content .folder-image-wrapper img {
+    border-radius: 10px;
+    transform: translateY(-10px);
+}
+
+.siderbar-content .folder-image-para-wrapper p {
+    color: white;
+    font-style: italic;
+    margin-right: 1em;
+    font-size: 1.2em;
+}
+
+/* element controls icons */
+.element-controls i {
+    color: white;
+    font-size: 0.9em;
+}
+
+.element-controls  {
+   display: flex;
+   gap: 10px;
+   position: absolute;
+   left: 60px;
+   /* top: 10px; */
 }
