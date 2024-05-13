@@ -90,22 +90,25 @@ function handleFiles(){
         //     }
         // })
 
-        // The parent element of the image list elements 
-        const imageContentArea = document.querySelectorAll('image-content-area');
+        
         // The font-awesome trash icon as the delete icon
-        const deleteButton = document.querySelectorAll('.file-controls .fa-file-import');
+        const deleteButton = document.querySelectorAll('.file-controls .fa-trash-can');
 
+        // 
+        
         deleteButton.forEach((item)=>{
-            item.addEventListener('click', ()=>{
-                deleteElementCard(attachedUpload, imageContentArea)
+            item.addEventListener('click', (e)=>{
+                deleteElementCard(attachedUpload, [e.target.closest('.image-content-area')]);
+                console.log(e.target)
             })
-        })
+        });
 
     }
 }
 
 function deleteElementCard(parent, child){
-    return (
-        parent.removeChild(child)
-    )
+    child.forEach((element) => {
+        parent.removeChild(element);
+    });
 }
+
