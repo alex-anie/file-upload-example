@@ -92,14 +92,28 @@ function handleFiles(){
 
         
         // The font-awesome trash icon as the delete icon
+        const shareButton = document.querySelectorAll('.file-controls .fa-share-from-square');
         const deleteButton = document.querySelectorAll('.file-controls .fa-trash-can');
 
-        // 
-        
+        shareButton.forEach((button)=>{
+            button.addEventListener('click', ()=> {
+                const shareModel = document.querySelector('#shareModel');
+                const cancelModel = document.querySelector('.share-btn');
+                const overlay = document.querySelector('.overlay');
+
+                shareModel.style.display = 'flex';
+                overlay.style.display = 'block';
+
+                cancelModel.addEventListener('click', ()=> {
+                    shareModel.style.display = 'none';
+                    overlay.style.display = 'none';
+                })
+            })
+        })
+
         deleteButton.forEach((item)=>{
             item.addEventListener('click', (e)=>{
                 deleteElementCard(attachedUpload, [e.target.closest('.image-content-area')]);
-                console.log(e.target)
             })
         });
 
