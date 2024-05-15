@@ -412,4 +412,5 @@ em {
     background-color: #000000;
     opacity: 0.4;
     z-index: 997;
+    pointer-events: none;
 }

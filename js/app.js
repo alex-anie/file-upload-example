@@ -92,9 +92,45 @@ function handleFiles(){
 
         
         // The font-awesome trash icon as the delete icon
+        const moveButton = document.querySelectorAll('.file-controls .fa-file-import');
         const shareButton = document.querySelectorAll('.file-controls .fa-share-from-square');
         const deleteButton = document.querySelectorAll('.file-controls .fa-trash-can');
+        const checkboxButton = document.querySelectorAll('.file-controls [type="checkbox"]');
 
+        console.log(checkboxButton)
+
+        moveButton.forEach((button)=>{
+            button.addEventListener('click', (e)=>{
+                const moveImgEl = e.target.closest('.image-content-area').querySelector('.image-wrapper img');
+                const moveParaEl = e.target.closest('.image-content-area').querySelector('.file-name');
+
+                const src = moveImgEl.getAttribute('src');
+                const textContent = moveParaEl.textContent.split(' ').filter((word, idx) => idx < 2).join(' ');
+
+            console.log("Image Source:", src);
+            console.log("Paragraph Text:", textContent);
+
+                deleteElementCard(attachedUpload, [e.target.closest('.image-content-area')]);
+
+                const folderImgCard = 
+                                        ` <div class="folder-image-para-wrapper">
+                                            <div class="element-controls">
+                                                <i class="fa-solid fa-retweet"></i>
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </div>
+                                            <div class="folder-image-wrapper">
+                                                <img src="${src}" alt="">
+                                            </div>
+                                            <p class="file-name">${textContent}</p>
+                                        </div>`;
+                const folderOverflow = document.querySelector('.folder-overflow');
+
+                folderOverflow.innerHTML = folderImgCard + folderOverflow.innerHTML;
+
+            })
+        })
+
+        // Share button
         shareButton.forEach((button)=>{
             button.addEventListener('click', ()=> {
                 const shareModel = document.querySelector('#shareModel');
@@ -111,10 +147,32 @@ function handleFiles(){
             })
         })
 
+        // Delete Button
         deleteButton.forEach((item)=>{
             item.addEventListener('click', (e)=>{
                 deleteElementCard(attachedUpload, [e.target.closest('.image-content-area')]);
             })
+        });
+
+      
+        // Checkbox Button Delete All
+        checkboxButton.forEach((button) => {
+            button.addEventListener('click', () => {
+                if (button.checked) {
+                    console.log('This button is checked...');
+                    const deleteSelectedBtn = document.querySelector('.fa-eye');
+                    deleteSelectedBtn.classList.remove('fa-eye'); // Remove fa-eye class
+                    deleteSelectedBtn.classList.add('fa-trash-can'); // Add fa-trash-can class
+
+                    deleteSelectedBtn.addEventListener('click', () => {
+                        const removeSelected = document.querySelectorAll('.image-content-area input[type="checkbox"]:checked');
+                        removeSelected.forEach((checkbox) => {
+                            const imageContentArea = checkbox.closest('.image-content-area');
+                            imageContentArea.remove();
+                        });
+                    });
+                }
+            });
         });
 
     }
@@ -125,4 +183,3 @@ function deleteElementCard(parent, child){
         parent.removeChild(element);
     });
 }
-
